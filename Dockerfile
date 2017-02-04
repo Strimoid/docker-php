@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y bzip2 git g++ python2.7 libicu-dev libm
     cd /usr/local/src/v8 && mkdir -p /usr/v8/include /usr/v8/lib && \
     cp out.gn/x64.release/lib*.so /usr/v8/lib && cp -R include/* /usr/v8/include && \
     cp out.gn/x64.release/natives_blob.bin /usr/v8/lib && cp out.gn/x64.release/snapshot_blob.bin /usr/v8/lib && \
-    rm -rf /tmp/depot_tools /usr/local/src/v8 && apt-get remove -y bzip2 git python2.7
+    rm -rf /tmp/depot_tools /usr/local/src/v8 && apt-get remove -y python2.7
 
 # Install PHP extensions
 RUN docker-php-ext-install exif intl pcntl pdo pdo_mysql zip && export V8_DIR=/usr/v8 && \
