@@ -1,7 +1,6 @@
 FROM php:7.1-fpm
 
-RUN apt-get update && apt-get install -y bzip2 git g++ python2.7 libicu-dev libmagickwand-dev zlib1g-dev && \
-    ln -s /usr/bin/python2.7 /usr/bin/python
+RUN apt-get update && apt-get install -y bzip2 git g++ python2.7 libicu-dev libmagickwand-dev zlib1g-dev
 
 # Build V8
 RUN git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git /tmp/depot_tools
