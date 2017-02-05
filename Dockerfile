@@ -9,6 +9,8 @@ RUN apt-get update && apt-get install -y bzip2 git g++ python2.7 libicu-dev libm
     cd /usr/local/src/v8 && mkdir -p /usr/v8/include /usr/v8/lib && \
     cp out.gn/x64.release/lib*.so /usr/v8/lib && cp -R include/* /usr/v8/include && \
     cp out.gn/x64.release/natives_blob.bin /usr/v8/lib && cp out.gn/x64.release/snapshot_blob.bin /usr/v8/lib && \
+    cd out.gn/x64.release/obj && ar rcsDT libv8_libplatform.a v8_libplatform/*.o && \
+    echo -e "create /usr/v8/lib/libv8_libplatform.a\naddlib /usr/local/src/v8/out.gn/x64.release/obj/libv8_libplatform.a\nsave\nend" | ar -M` && \
     rm -rf /tmp/depot_tools /usr/local/src/v8
 
 # Install PHP extensions
