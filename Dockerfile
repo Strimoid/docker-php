@@ -13,12 +13,12 @@ RUN apt-get update && \
     tools/dev/v8gen.py x64.release -- is_component_build=true && \
     ninja -C out.gn/x64.release && \
     cd /usr/local/src/v8 && \
-    mkdir -p /usr/v8/{lib,include} && \
-    cp out.gn/x64.release/lib*.so out.gn/x64.release/*_blob.bin /usr/v8/lib && \
-    cp -R include/* /usr/v8/include && \
+    mkdir -p /usr/{lib,include} && \
+    cp out.gn/x64.release/lib*.so out.gn/x64.release/*_blob.bin /usr/lib && \
+    cp -R include/* /usr/include && \
     cd out.gn/x64.release/obj && \
     ar rcsDT libv8_libplatform.a v8_libplatform/*.o && \
-    echo "create /usr/v8/lib/libv8_libplatform.a\naddlib /usr/local/src/v8/out.gn/x64.release/obj/libv8_libplatform.a\nsave\nend" | ar -M && \
+    echo "create /usr/lib/libv8_libplatform.a\naddlib /usr/local/src/v8/out.gn/x64.release/obj/libv8_libplatform.a\nsave\nend" | ar -M && \
     rm -rf /tmp/depot_tools /usr/local/src/v8
 
 # Install PHP extensions
