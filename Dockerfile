@@ -4,7 +4,7 @@ FROM php:7.1-fpm
 RUN apt-get update && apt-get install -y bzip2 git g++ python2.7 libicu-dev libmagickwand-dev zlib1g-dev && \
     git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git /tmp/depot_tools && \
     export PATH="$PATH:/tmp/depot_tools" && \
-    cd /usr/local/src && fetch v8 && cd v8 && git checkout -b 5.7 -t branch-heads/5.7 && gclient sync && \
+    cd /usr/local/src && fetch v8 && cd v8 && git checkout -b 5.9 -t branch-heads/5.9 && gclient sync && \
     tools/dev/v8gen.py x64.release -- is_component_build=true && ninja -C out.gn/x64.release && \
     cd /usr/local/src/v8 && mkdir -p /usr/v8/include /usr/v8/lib && \
     cp out.gn/x64.release/lib*.so /usr/v8/lib && cp -R include/* /usr/v8/include && \
