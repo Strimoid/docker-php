@@ -23,7 +23,6 @@ RUN apt-get update && \
 
 # Install PHP extensions
 RUN docker-php-ext-install exif intl pcntl pdo pdo_mysql zip && \
-    export V8_DIR=/usr/v8 && \
     pecl install apcu imagick v8js && \
     docker-php-ext-enable apcu imagick v8js
 
