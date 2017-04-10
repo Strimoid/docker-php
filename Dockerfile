@@ -3,7 +3,7 @@ FROM php:7.1-fpm
 # Build V8
 RUN apt-get update && \
     apt-get install -y bzip2 git g++ python2.7 libicu-dev libmagickwand-dev zlib1g-dev && \
-    git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git /tmp/depot_tools && \
+    git clone --depth=1 https://chromium.googlesource.com/chromium/tools/depot_tools.git /tmp/depot_tools && \
     export PATH="$PATH:/tmp/depot_tools" && \
     cd /usr/local/src && \
     fetch v8 && \
