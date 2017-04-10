@@ -21,6 +21,6 @@ RUN docker-php-ext-install exif intl pcntl pdo pdo_mysql zip && export V8_DIR=/u
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Install Dockerize
-ENV DOCKERIZE_VERSION v0.3.0
+ENV DOCKERIZE_VERSION v0.4.0
 RUN curl -SL https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
     | tar xzC /usr/local/bin
