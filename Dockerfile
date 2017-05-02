@@ -22,7 +22,7 @@ RUN apt-get update && \
     rm -rf /tmp/depot_tools /usr/local/src/v8
 
 # Install PHP extensions
-RUN docker-php-ext-install bcmath exif intl pcntl pdo pdo_mysql zip && \
+RUN docker-php-ext-install bcmath exif intl pcntl pdo pdo_mysql pdo_pgsql zip && \
     pecl install apcu imagick && \
     echo "/usr" | pecl install v8js && \
     docker-php-ext-enable apcu imagick v8js
