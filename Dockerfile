@@ -8,7 +8,7 @@ RUN apt-get update && \
     cd /usr/local/src && \
     fetch v8 && \
     cd v8 && \
-    git checkout 5.9.196 && \
+    git checkout 6.0.292 && \
     gclient sync && \
     tools/dev/v8gen.py x64.release -- is_component_build=true && \
     ninja -C out.gn/x64.release && \
@@ -18,7 +18,8 @@ RUN apt-get update && \
     cd out.gn/x64.release/obj && \
     ar rcsDT libv8_libplatform.a v8_libplatform/*.o && \
     echo "create /usr/lib/libv8_libplatform.a\naddlib /usr/local/src/v8/out.gn/x64.release/obj/libv8_libplatform.a\nsave\nend" | ar -M && \
-    rm -rf /tmp/depot_tools /usr/local/src/v8
+    rm -rf /tmp/depot_tools /usr/local/src/v8 && \
+    apt-get remove g++
 
 # Install PHP extensions
 RUN docker-php-ext-install bcmath exif intl pcntl pdo pdo_mysql pdo_pgsql zip && \
@@ -27,6 +28,7 @@ RUN docker-php-ext-install bcmath exif intl pcntl pdo pdo_mysql pdo_pgsql zip &&
     docker-php-ext-enable apcu imagick v8js
 
 # Install Composer
+ENV COMPOSER_ALLOW_SUPERUSER 1
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Install Dockerize
