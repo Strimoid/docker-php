@@ -8,5 +8,7 @@ Docker image based on [official PHP image](https://hub.docker.com/_/php/) with f
 * intl
 * pcntl
 * pdo
+* pdo_mysql
 * pdo_pgsql
+* v8js
 * zip
