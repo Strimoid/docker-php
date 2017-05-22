@@ -13,7 +13,6 @@ RUN apt-get update && \
     tools/dev/v8gen.py x64.release -- is_component_build=true && \
     ninja -C out.gn/x64.release && \
     cd /usr/local/src/v8 && \
-    mkdir -p /usr/{lib,include} && \
     cp out.gn/x64.release/lib*.so out.gn/x64.release/*_blob.bin /usr/lib && \
     cp -R include/* /usr/include && \
     cd out.gn/x64.release/obj && \
