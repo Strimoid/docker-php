@@ -19,7 +19,7 @@ RUN apt-get update && \
     ar rcsDT libv8_libplatform.a v8_libplatform/*.o && \
     echo "create /usr/lib/libv8_libplatform.a\naddlib /usr/local/src/v8/out.gn/x64.release/obj/libv8_libplatform.a\nsave\nend" | ar -M && \
     rm -rf /tmp/depot_tools /usr/local/src/v8 && \
-    apt-get remove g++
+    apt-get autoremove -y
 
 # Install PHP extensions
 RUN docker-php-ext-install bcmath exif intl pcntl pdo pdo_mysql pdo_pgsql zip && \
