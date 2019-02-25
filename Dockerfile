@@ -1,6 +1,5 @@
-FROM php:7.1-fpm
+FROM php:7.3-apache
 
-# Build V8
 RUN apt-get update && \
     apt-get install -y bzip2 git g++ libicu-dev libmagickwand-dev libpq-dev zlib1g-dev
 
