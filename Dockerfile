@@ -1,7 +1,7 @@
 FROM php:7.3-apache
 
 RUN apt-get update && \
-    apt-get install -y bzip2 git g++ libicu-dev libmagickwand-dev libpq-dev libzip-dev zlib1g-dev
+    apt-get install -y bzip2 git g++ libicu-dev libmagickwand-dev libpq-dev libzip-dev unzip zlib1g-dev
 
 # Install PHP extensions
 RUN docker-php-ext-install bcmath exif intl pcntl pdo pdo_mysql pdo_pgsql zip && \
