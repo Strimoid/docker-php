@@ -5,7 +5,7 @@ RUN apt-get update && \
 
 # Install PHP extensions
 RUN docker-php-ext-install bcmath exif intl pcntl pdo pdo_mysql pdo_pgsql zip && \
-    pecl install apcu imagick && \
+    pecl install apcu imagick xdebug && \
     docker-php-ext-enable apcu imagick
 
 # Install Composer
