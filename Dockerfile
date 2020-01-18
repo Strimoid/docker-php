@@ -1,4 +1,4 @@
-FROM php:7.3-apache
+FROM php:7.4-apache
 
 RUN apt-get update && \
     apt-get install -y bzip2 git g++ libicu-dev libmagickwand-dev libpq-dev libzip-dev unzip zlib1g-dev
