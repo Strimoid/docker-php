@@ -1,12 +1,12 @@
-FROM php:7.4-apache
-
-RUN apt-get update && \
-    apt-get install -y bzip2 git g++ libicu-dev libmagickwand-dev libpq-dev libzip-dev unzip zlib1g-dev
+FROM php:7.4-fpm-alpine
 
 # Install PHP extensions
-RUN docker-php-ext-install bcmath exif intl pcntl pdo pdo_mysql pdo_pgsql zip && \
+RUN apk add --no-cache --virtual .phpize-deps $PHPIZE_DEPS icu-dev imagemagick-dev libzip-dev postgresql-dev && \
+    docker-php-ext-install bcmath exif intl pcntl pdo pdo_pgsql zip && \
     pecl install apcu imagick redis xdebug && \
-    docker-php-ext-enable apcu imagick redis
+    docker-php-ext-enable apcu imagick redis && \
+    apk add --no-cache icu imagemagick libpq libzip && \
+    apk del .phpize-deps
 
 # Install Composer
 ENV COMPOSER_ALLOW_SUPERUSER 1
