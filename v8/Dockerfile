@@ -42,7 +42,7 @@ RUN apk add --no-cache --virtual .phpize-deps $PHPIZE_DEPS git icu-dev imagemagi
     make && \
     make install && \
     rm -r /tmp/v8js && \
-    docker-php-ext-install bcmath exif intl pcntl pdo pdo_pgsql zip && \
+    docker-php-ext-install bcmath exif intl opcache pcntl pdo pdo_pgsql zip && \
     pecl install apcu imagick redis xdebug && \
     docker-php-ext-enable apcu imagick redis v8js && \
     apk add --no-cache icu imagemagick libpq libzip && \

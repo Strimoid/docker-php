@@ -2,7 +2,7 @@ FROM php:7.4-fpm-alpine
 
 # Install PHP extensions
 RUN apk add --no-cache --virtual .phpize-deps $PHPIZE_DEPS icu-dev imagemagick-dev libzip-dev postgresql-dev && \
-    docker-php-ext-install bcmath exif intl pcntl pdo pdo_pgsql zip && \
+    docker-php-ext-install bcmath exif intl opcache pcntl pdo pdo_pgsql zip && \
     pecl install apcu imagick redis xdebug && \
     docker-php-ext-enable apcu imagick redis && \
     apk add --no-cache icu imagemagick libpq libzip && \
