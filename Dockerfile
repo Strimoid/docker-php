@@ -1,7 +1,7 @@
 FROM php:8.0-fpm-alpine
 
 # Install pickle
-ENV PICKLE_VERSION=0.6.0
+ENV PICKLE_VERSION=0.7.2
 RUN curl -Lo /usr/local/bin/pickle https://github.com/FriendsOfPHP/pickle/releases/download/v$PICKLE_VERSION/pickle.phar && \
     chmod +x /usr/local/bin/pickle
 
