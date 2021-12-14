@@ -1,6 +1,6 @@
 FROM strimoid/v8 AS v8
 
-FROM php:8.1-rc-fpm-alpine
+FROM php:8.1-fpm-alpine
 
 COPY --from=v8 /v8/ /usr/v8/
 

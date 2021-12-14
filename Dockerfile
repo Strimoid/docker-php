@@ -1,4 +1,4 @@
-FROM php:8.1-rc-fpm-alpine
+FROM php:8.1-fpm-alpine
 
 # Install pickle
 ENV PICKLE_VERSION=0.7.7
