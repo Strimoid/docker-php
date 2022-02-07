@@ -20,7 +20,7 @@ RUN apk add --no-cache --virtual .phpize-deps $PHPIZE_DEPS git icu-dev imagemagi
     cd .. && \
     rm -r imagick && \
     docker-php-ext-enable apcu imagick redis && \
-    apk add --no-cache icu imagemagick libpq libzip && \
+    apk add --no-cache icu imagemagick libgomp libpq libzip && \
     apk del .phpize-deps
 
 # Install Composer
