@@ -1,6 +1,6 @@
 FROM strimoid/v8 AS v8
 
-FROM php:8.1-fpm-alpine
+FROM php:8.2-fpm-alpine
 
 COPY --from=v8 /v8/ /usr/v8/
 
@@ -19,7 +19,7 @@ RUN apk add --no-cache --virtual .phpize-deps $PHPIZE_DEPS git icu-dev imagemagi
     pickle install redis && \
     # pickle install xdebug && \
     docker-php-ext-enable apcu imagick redis v8js && \
-    apk add --no-cache icu imagemagick libpq libzip && \
+    apk add --no-cache icu imagemagick libgomp libpq libzip && \
     apk del .phpize-deps
 
 # Install Composer
