@@ -6,11 +6,11 @@ RUN curl -Lo /usr/local/bin/pickle https://github.com/FriendsOfPHP/pickle/releas
     chmod +x /usr/local/bin/pickle
 
 # Install PHP extensions
-RUN apk add --no-cache --virtual .phpize-deps $PHPIZE_DEPS git icu-dev imagemagick-dev libzip-dev postgresql-dev && \
+RUN apk add --no-cache --virtual .phpize-deps $PHPIZE_DEPS git icu-dev imagemagick-dev libzip-dev linux-headers postgresql-dev && \
     docker-php-ext-install bcmath exif intl opcache pcntl pdo pdo_pgsql zip && \
     pickle install apcu && \
     pickle install redis && \
-    # pickle install xdebug && \
+    pickle install xdebug && \
     git clone https://github.com/Imagick/imagick && \
     cd imagick && \
     phpize && \
